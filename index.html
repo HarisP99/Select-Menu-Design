@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Menu</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="hero">
+
+                <!-- Kontejner za selektor za padajući meni -->
+        <div class="selector">
+            <div id="selectField">
+                <p id="selectText">Odaberi drustene mreze</p>
+                <img src="images/arrow.png" id="arrowIcon">
+            </div>
+            <!-- Padajući meni lista -->
+            <ul id="list" class="hide">
+                                <!-- Pojedinačne opcije u padajućem meniju -->
+
+                <li class="options">
+                    <img src="images/facebook.png">
+                    <p>Facebook</p>
+                </li>
+                <li class="options">
+                    <img src="images/twitter.png">
+                    <p>Twitter</p>
+                </li>
+                <li class="options">
+                    <img src="images/instagram.png">
+                    <p>Instagram</p>
+                </li>
+                <li class="options">
+                    <img src="images/pinterest.png">
+                    <p>Pinterest</p>
+                </li>
+                <li class="options">
+                    <img src="images/youtube.png">
+                    <p>YouTube</p>
+                </li>
+                <li class="options">
+                    <img src="images/whatsapp.png">
+                    <p>WhatsApp</p>
+                </li>
+            </ul>
+        </div>
+    </div>
+    
+<script>
+     // JavaScript kod za upravljanje padajućim menijem
+
+    // DOM elementi
+    var selectField = document.getElementById("selectField");
+    var selectText = document.getElementById("selectText");
+    var options = document.getElementsByClassName("options");
+    var list = document.getElementById("list");
+    var arrowIcon = document.getElementById("arrowIcon");
+
+
+     // Klik događaj za selectField
+
+    selectField.onclick = function(){
+                // Prekidač za 'hide' klasu kako bi se prikazao/sakrio padajući meni
+       list.classList.toggle("hide");
+               // Prekidač za 'rotate' klasu kako bi se rotirao ikona strelice
+
+       arrowIcon.classList.toggle("rotate");
+
+    }
+        // Klik događaj za svaku opciju u padajućem meniju
+    for(option of options){
+        option.onclick = function(){
+                        // Postavi sadržaj selectText na odabranu opciju
+            selectText.innerHTML = this.textContent;
+                        // Prekidač za 'hide' klasu kako bi se sakrio padajući meni nakon odabira
+            list.classList.toggle("hide");
+                        // Prekidač za 'rotate' klasu kako bi se vratio ikona strelice u izvorni položaj
+            arrowIcon.classList.toggle("rotate");
+
+
+        }
+    }
+
+    
+</script>
+
+
+</body>
+</html>
